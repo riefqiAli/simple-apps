@@ -6,7 +6,7 @@ services:
       - db
     ports:
       - "80:3000"
-    volume:
+    volumes:
       - app-data:/apps/public/images
 
   db:
@@ -21,7 +21,7 @@ services:
       - MYSQL_DATABASE=training
       - MYSQL_USER=peserta
       - MYSQL_PASSWORD=password
-    volume:
+    volumes:
       - ./apps/database/:/docker-entrypoint-initdb.d
       - db-data:/var/lib/mysql
   
@@ -32,6 +32,6 @@ services:
       - "8000:80"
 
 
-volume:
+volumes:
   app-data:
   db-data:      
